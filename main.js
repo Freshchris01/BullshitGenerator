@@ -43,13 +43,13 @@ function requestImage(){
 
     switch(theSwitcher) { 
         case 0: 
-            var normal_first = ["Be a", "Everyone is a", "Look at this", "Everything is just", "The meaning of life is", "The majestic", "The"]; 
+            var normal_first = ["Be a", "Everyone is a", "Look at this", "Everything is just", "The meaning of life is", "The majestic", "The", "This will be a"]; 
     var placeholder1 = obj['tags'][0]['name'];
     var normal_second = ["Because of", "This is the meaning of the", "This is the art of", "Just do it Mr.", "All day, every day"]; 
     var placeholder2 = obj['tags'][1]['name'];
     var normal_third = ["Today","Tomorrow","Every Day","Now","At home","Wherever you are","Think of that every day"]; 
      
-    var firstRand =  Math.floor((Math.random() * 7) );  
+    var firstRand =  Math.floor((Math.random() * 8) );  
     var secondRand = Math.floor((Math.random() * 5));   
     var thirdRand = Math.floor((Math.random()*7)); 
      
