@@ -1,4 +1,4 @@
-Package No.;Feature;Wer?;Done?;Due to
+Package No.;Feature;Wer?;Status;Bis wann ist es zu erwarten?
 1;Layout der Website -> Standartdesign --> Impressum;;;
 2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;;;
 3;Grammatiken erweitern - Mehrzahl?? --> Mehrzahl zB immer wenn ein -s hinten;;;
