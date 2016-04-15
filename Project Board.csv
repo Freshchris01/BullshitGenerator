@@ -1,7 +1,10 @@
 Package No.;Feature;Wer?;Status;Bis wann ist es zu erwarten?
 1;Layout der Website -> Standartdesign --> Impressum;;;
-2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;;;
+2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;Simon;In FeatureSimon;Soon :)
 3;Grammatiken erweitern - Mehrzahl?? --> Mehrzahl zB immer wenn ein -s hinten;;;
 4;Download-Button;;;
 5;Noch mehr Textvarianten die Ausgegeben werden können.;;;
 6;Watermark unten rechts ins Bild einfügen (-> created with im-gen.org);;;
+7;"Bug: Wort Nr. 3 ist momentan anscheinend immer ""white""";;;
+8;Wähle Alle Worte mit +85% Wahrscheinlichkeit aus und dann wähle davon Zufällig;;;
+9;at Christian --> Füge auch einen Cognitive Services ACC hinzu und deinen Access code --> dann hätten wir doppeltes Volumen? :);;;
