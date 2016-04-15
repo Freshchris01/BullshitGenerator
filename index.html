@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Sample "Hello, World" Application</title>
+    <title>Motivational Inspiration Generator (im-gen.org)</title>
     
     <script type="text/javascript" src="main.js"></script>
     <style type="text/css">
@@ -11,12 +11,18 @@
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   </head>
-  <body bgcolor=white>
-      <canvas id="myCanvas" width="0px" height="0px">
-          
+  <body bgcolor=white >
+		<h1 align="center">Inspirational Motivation Generator</h1>
+		<h2 align="center">Im-gen.org</h2>
+		<h3 align="center">
+      <canvas align="center" id="myCanvas" width="250px" height="250px" style= "border:1px solid black">
       </canvas>
-      <button onclick="wrapTest()">wrapTest</button>
-      <button onclick="requestImgAPI()">ImgAPI Request</button>
-      <input type="text" id="urlInput" value="https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg">
+	  <br>
+      <button align="center" onclick="wrapTest()">wrapTest</button>
+      <button align="center" onclick="requestImgAPI()">Motivate Me!</button>
+	  <br>
+	  Please enter Image-Link
+      <input align="center" type="text" id="urlInput" value="https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg">
+  </h3> 
   </body>
 </html>
