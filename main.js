@@ -196,3 +196,7 @@ function dlCanvas() {
 
         this.href = dt;
 };
+
+function downloadCanvasAsPng() {
+        ReImg.fromCanvas(document.querySelector('canvas')).downloadPng();
+}
