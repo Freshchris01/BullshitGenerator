@@ -192,3 +192,4 @@ function displayImage(url){
         //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
         imageObj.src = $('#urlInput').val();
 }
+}
