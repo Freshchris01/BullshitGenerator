@@ -100,7 +100,6 @@ function requestImgAPI(param) {
     if ($.trim($('#urlInput').val()) != "") {
         $.ajax({
             type: "GET",
-            url: "http://imgen.azurewebsites.net/curltest.php?imgurl=" + $.trim($('#urlInput').val()),
             url: "curltest.php?imgurl=" + $.trim($('#urlInput').val()),
 
             success: function (data) {
@@ -192,20 +191,4 @@ function displayImage(url){
         //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
         //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
         imageObj.src = $('#urlInput').val();
-}
-
-function dlCanvas() {
-        var canvas = document.getElementById('myCanvas');
-        var dt = canvas.toDataURL('image/png');
-        /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
-        dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-
-        /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
-        dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
-
-        this.href = dt;
-};
-
-function downloadCanvasAsPng() {
-        ReImg.fromCanvas(document.querySelector('canvas')).downloadPng();
 }
