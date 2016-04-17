@@ -1,10 +1,12 @@
-Package No.;Feature;Wer?;Status;Bis wann ist es zu erwarten?
-1;Layout der Website -> Standartdesign --> Impressum;Christian;In FeatureChristian;Morgen abend
-2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;Simon;In FeatureSimon;Soon :)
+Package No.;Feature;Wer?;Status;Done?
+1;Layout der Website -> Standartdesign --> Impressum;Christian;in Master;Done 20160417
+2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;;Sollte getan werden!!;
 3;Grammatiken erweitern - Mehrzahl?? --> Mehrzahl zB immer wenn ein -s hinten;;;
-4;Download-Button;;;
-5;Noch mehr Textvarianten die Ausgegeben werden können.;;;
+4;Download-Button;Simon, Chrisitan;Laufend verbesserungen!!;xxx
+5;Noch mehr Textvarianten die Ausgegeben werden können.;Simon;in Master;Done 20160418
 6;Watermark unten rechts ins Bild einfügen (-> created with im-gen.org);;;
-7;"Bug: Wort Nr. 3 ist momentan anscheinend immer ""white""";;;
-8;Wähle Alle Worte mit +85% Wahrscheinlichkeit aus und dann wähle davon Zufällig;;;
+7;"Bug: Wort Nr. 3 ist momentan anscheinend immer ""white""";Simon;Resolved;Done 20160418
+8;Wähle Alle Tags aus und dann wähle davon Zufällig;Simon;in Master;Done 20160418
 9;at Christian --> Füge auch einen Cognitive Services ACC hinzu und deinen Access code --> dann hätten wir doppeltes Volumen? :);;;
+10;Nehme evtl nur die Worte mit Hoher Wahrscheinlichkeit  (Low Priority);;;
+11;Layout und Inhalt weiter erweitern :);;;
