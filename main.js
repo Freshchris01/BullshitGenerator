@@ -6,12 +6,12 @@ var obj;
 var tmpUrl = "";
 
 function init() {
-        requestImgAPI(0);
-
+        requestMS(0);
 }
+
 function displayText(imageUrl){
     textinsert = "";
-    requestImage();
+    setInsertText();
     var canvas = document.getElementById('myCanvas');
       var context = canvas.getContext('2d');
       var imageObj = new Image();
@@ -37,17 +37,13 @@ function displayText(imageUrl){
           //wrapText(context, textinsert, x, y, maxWidth, lineHeight);
 
       };
-
-
-      //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
-      //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
       
       imageObj.src = imageUrl;
 
       
 }
 
-function requestImage(){
+function setInsertText(){
     var theSwitcher = Math.floor(Math.random()*3); 
 
     switch(theSwitcher) { 
@@ -95,6 +91,42 @@ function requestImage(){
     textinsert = short_first[firstRand] + " " + placeholder1 + " " + short_second[secondRand];  
     }
     
+}
+
+function requestMS(param){
+    if(tmpUrl != $.trim($('#urlInput').val())){
+        if ($.trim($('#urlInput').val()) != "") {
+            var dataText = '{"url":"' + $.trim($('#urlInput').val()) + '"}';
+            $.ajax({
+                type: "POST",
+                url: "http://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Tags",
+                contentType: "application/json",
+                headers: {
+                    "ocp-apim-subscription-key": "fecebb3690bb4b83be1f2d516b18318e",
+                },
+                data: dataText,
+                success: function(data){
+                    console.log(data);
+                    
+                    tmpUrl = $.trim($('#urlInput').val());
+                    obj = data
+                    if(param == 1){
+                        displayText($.trim($('#urlInput').val()));
+                    }else if(param == 0){
+                        displayImage($.trim($('#urlInput').val()));
+                    }                    
+                },
+                error: function(error){
+                    alert(JSON.parse(error['responseText'])['message']);
+                }
+            });
+           
+        } else {
+            alert('please insert url');
+        }
+    }else{
+        displayText(tmpUrl);
+    }
 }
 
 function requestImgAPI(param) {
@@ -190,8 +222,5 @@ function displayImage(url){
                 context.drawImage(imageObj, 0, 0);
         };
 
-
-        //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
-        //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
         imageObj.src = $('#urlInput').val();
 }
