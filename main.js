@@ -3,12 +3,13 @@ var url1 = "http://diemers.dubhe.uberspace.de/bullshit/bullshit.php?imgurl=https
 var url2 = 'http://jsonplaceholder.typicode.com';
 var imgUrl = 'https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg';
 var obj;
+var tmpUrl = "";
 
 function init() {
         requestImgAPI(0);
 
 }
-function test(imageUrl){
+function displayText(imageUrl){
     textinsert = "";
     requestImage();
     var canvas = document.getElementById('myCanvas');
@@ -40,7 +41,10 @@ function test(imageUrl){
 
       //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
       //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
+      
       imageObj.src = imageUrl;
+
+      
 }
 
 function requestImage(){
@@ -95,38 +99,44 @@ function requestImage(){
 
 function requestImgAPI(param) {
 
-    if ($.trim($('#urlInput').val()) != "") {
-        $.ajax({
-            type: "GET",
-            url: "curltest.php?imgurl=" + $.trim($('#urlInput').val()),
+    if(tmpUrl != $.trim($('#urlInput').val())){
+        if ($.trim($('#urlInput').val()) != "") {
+            $.ajax({
+                type: "GET",
+                url: "curltest.php?imgurl=" + $.trim($('#urlInput').val()),
 
-            success: function (data) {
-                console.log(data);
-                //console.log(data);
-                var jsonString = data.substring(0, data.length-4);      // delete 'null' of response
-                obj = JSON.parse(jsonString);
-                console.log(obj);
-                if(obj['code'] === undefined){
-                    test($.trim($('#urlInput').val()));
-                        if(param == 1){
-                                test($.trim($('#urlInput').val()));
-                        }else if(param == 0){
-                                displayImage($.trim($('#urlInput').val()));
-                        }
-                }else{
-                    alert(obj['message']);
+                success: function (data) {
+                    tmpUrl = $.trim($('#urlInput').val());
+                    console.log(data);
+                    //console.log(data);
+                    var jsonString = data.substring(0, data.length-4);      // delete 'null' of response
+                    obj = JSON.parse(jsonString);
+                    console.log(obj);
+                    if(obj['code'] === undefined){
+                        displayText($.trim($('#urlInput').val()));
+                            if(param == 1){
+                                    displayText($.trim($('#urlInput').val()));
+                            }else if(param == 0){
+                                    displayImage($.trim($('#urlInput').val()));
+                            }
+                    }else{
+                        alert(obj['message']);
+                    }
+
+
+                },
+                error: function (request, status, error) {
+                    alert("Error! " + request.responseText);
                 }
 
-
-            },
-            error: function (request, status, error) {
-                alert("Error! " + request.responseText);
-            }
-
-        });
-    } else {
-        alert('please insert url');
+            });
+        } else {
+            alert('please insert url');
+        }
+    }else{
+        displayText(tmpUrl);
     }
+    
 
 }
 
@@ -165,11 +175,6 @@ function wrapTest(){
     context.fillStyle = '#333';
 
     wrapText(context, text, x, y, maxWidth, lineHeight);
-}
-
-function downloadCanvas(link, canvasId, filename) {
-        link.href = document.getElementById(canvasId).toDataURL();
-        link.download = filename;
 }
 
 function displayImage(url){
