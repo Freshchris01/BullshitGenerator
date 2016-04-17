@@ -1,11 +1,7 @@
 <?php
 
     error_reporting(E_ALL);
-    $img = imagejpeg($_GET['imgurl'], 'test.jpeg');
-$black = ImageColorAllocate ($im, 0, 0, 0);
-$white = ImageColorAllocate ($im, 255, 255, 255);
 
-ImageTTFText ($im, 20, 0, 10, 20, $white, "Calibri.ttf", "Teste... Omega: &#937;");
     $url = 'http://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Tags';
 
     if(isset($_GET['imgurl'])){
@@ -24,7 +20,8 @@ ImageTTFText ($im, 20, 0, 10, 20, $white, "Calibri.ttf", "Teste... Omega: &#937;
             'Content-Type: application/json'
         ));
 
-        if(curl_exec($curl) === false)
+        $result = curl_exec($curl);
+        if($result === false)
         {
             $rawDate = json_encode(curl_error($curl), JSON_FORCE_OBJECT);
             exit();

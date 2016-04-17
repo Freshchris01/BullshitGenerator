@@ -3,6 +3,11 @@ var url1 = "http://diemers.dubhe.uberspace.de/bullshit/bullshit.php?imgurl=https
 var url2 = 'http://jsonplaceholder.typicode.com';
 var imgUrl = 'https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg';
 var obj;
+
+function init() {
+        requestImgAPI(0);
+
+}
 function test(imageUrl){
     textinsert = "";
     requestImage();
@@ -64,6 +69,7 @@ function requestImage(){
     var placeholder2 = obj['tags'][1]['name'];
     var long_third = ["of the","in the","of the beautiful"," "]; 
     var placeholder3 = "white"; 
+    var placeholder3 = obj['tags'][2]['name'];;
     var firstRand =  Math.floor((Math.random() * 4));  
     var secondRand = Math.floor((Math.random() * 3));   
     var thirdRand = Math.floor((Math.random()*3)); 
@@ -89,19 +95,27 @@ function requestImage(){
 }
 
 function requestImgAPI() {
+function requestImgAPI(param) {
 
     if ($.trim($('#urlInput').val()) != "") {
         $.ajax({
             type: "GET",
             url: "http://imgen.azurewebsites.net/curltest.php?imgurl=" + $.trim($('#urlInput').val()),
+            url: "curltest.php?imgurl=" + $.trim($('#urlInput').val()),
 
             success: function (data) {
                 console.log(data);
+                //console.log(data);
                 var jsonString = data.substring(0, data.length-4);      // delete 'null' of response
                 obj = JSON.parse(jsonString);
                 console.log(obj);
                 if(obj['code'] === undefined){
                     test($.trim($('#urlInput').val()));
+                        if(param == 1){
+                                test($.trim($('#urlInput').val()));
+                        }else if(param == 0){
+                                displayImage($.trim($('#urlInput').val()));
+                        }
                 }else{
                     alert(obj['message']);
                 }
@@ -154,4 +168,44 @@ function wrapTest(){
     context.fillStyle = '#333';
 
     wrapText(context, text, x, y, maxWidth, lineHeight);
+}
+
+function downloadCanvas(link, canvasId, filename) {
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
+}
+
+function displayImage(url){
+
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        var imageObj = new Image();
+        console.log(obj['metadata']['height'] + ' X ' + obj['metadata']['width']);
+        context.canvas.width = obj['metadata']['width'];
+        context.canvas.height = obj['metadata']['height'];
+
+        imageObj.onload = function() {
+                context.drawImage(imageObj, 0, 0);
+        };
+
+
+        //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+        //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
+        imageObj.src = $('#urlInput').val();
+}
+
+function dlCanvas() {
+        var canvas = document.getElementById('myCanvas');
+        var dt = canvas.toDataURL('image/png');
+        /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+        dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+
+        /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+        dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+
+        this.href = dt;
+};
+
+function downloadCanvasAsPng() {
+        ReImg.fromCanvas(document.querySelector('canvas')).downloadPng();
 }
