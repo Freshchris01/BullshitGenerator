@@ -68,7 +68,6 @@ function requestImage(){
     var long_second = ["is the","are just","will destroy the"]; 
     var placeholder2 = obj['tags'][1]['name'];
     var long_third = ["of the","in the","of the beautiful"," "]; 
-    var placeholder3 = "white"; 
     var placeholder3 = obj['tags'][2]['name'];;
     var firstRand =  Math.floor((Math.random() * 4));  
     var secondRand = Math.floor((Math.random() * 3));   
@@ -94,7 +93,6 @@ function requestImage(){
     
 }
 
-function requestImgAPI() {
 function requestImgAPI(param) {
 
     if ($.trim($('#urlInput').val()) != "") {
@@ -191,5 +189,4 @@ function displayImage(url){
         //imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
         //imageObj.src = 'https://projectoxfordportal.azureedge.net/vision/Analysis/1-1.jpg';
         imageObj.src = $('#urlInput').val();
-}
 }
