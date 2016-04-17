@@ -93,7 +93,7 @@ function requestImgAPI() {
     if ($.trim($('#urlInput').val()) != "") {
         $.ajax({
             type: "GET",
-            url: "http://diemers.dubhe.uberspace.de/bullshit/curltest.php?imgurl=" + $.trim($('#urlInput').val()),
+            url: "http://imgen.azurewebsites.net/curltest.php?imgurl=" + $.trim($('#urlInput').val()),
 
             success: function (data) {
                 console.log(data);
