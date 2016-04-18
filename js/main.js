@@ -18,6 +18,7 @@ function displayText(imageUrl){
         console.log(obj['metadata']['height'] + ' X ' + obj['metadata']['width']);
         context.canvas.width = obj['metadata']['width'];
         context.canvas.height = obj['metadata']['height'];
+
       imageObj.onload = function() {
         context.drawImage(imageObj, 0, 0);
           // calculate font size (6.25% of total height)
@@ -44,57 +45,47 @@ function displayText(imageUrl){
 
 function setInsertText(){
     var theSwitcher = Math.floor(Math.random()*3); 
-    
-    textinsert="";
-    
-    var tagsFound = obj['tags'].length;
-    var imgTags = new Array();
-    var i = 0;
-    for(; i < tagsFound; i++){
-        imgTags[i] = obj['tags'][i]['name'];
-    }
-    
-    
-   
-  var someRandom =  Math.floor((Math.random() * tagsFound) ); 
-  placeholder1 = imgTags[someRandom];
-  someRandom =  Math.floor((Math.random() * tagsFound) ); 
-  placeholder2 = imgTags[someRandom];
-  someRandom =  Math.floor((Math.random() * tagsFound) ); 
-  placeholder3 = imgTags[someRandom];
+
     switch(theSwitcher) { 
-    case 0: 
-        var normal_first = ["Be a", "Everyone is a", "Look at this", "Everything is just", "The meaning of life is", "The majestic", "The", "This will be a"]; 
-        var normal_second = ["because of", "this is the meaning of the", "this is the art of", "just do it Mr.", "all day, every day"]; 
-        var normal_third = ["today","tomorrow","every Day","now","at home","wherever you are","think of that every day", "for eternity", "love.", "", ""]; 
-        
-        var firstRand =  Math.floor((Math.random() * normal_first.length) );  
-        var secondRand = Math.floor((Math.random() * normal_second.length));   
-        var thirdRand = Math.floor((Math.random()* normal_third.length)); 
-        
-        textinsert = normal_first[firstRand] + " " + placeholder1 + " " + normal_second[secondRand]+ " " + placeholder2 + " " + normal_third[thirdRand]; 
-    break; 
-            
-            
-    case 1: 
-        var long_first = ["The","All","No","Some"]; 
-        var long_second = ["is the","are just","will destroy the"]; 
-        var long_third = ["of the","in the","of the beautiful"," "]; 
-        var firstRand =  Math.floor((Math.random() * long_first.length));  
-        var secondRand = Math.floor((Math.random() * long_second.length));   
-        var thirdRand = Math.floor((Math.random()* long_third.length)); 
-        
-        textinsert = long_first[firstRand] + " " + placeholder1 + " " + long_second[secondRand]+ " " + placeholder2 + " " + long_third[thirdRand]+ " " +  placeholder3;  
-            
-    break; 
-      
-   // Case 3 ;)      
-   default: 
-    var short_first = ["This","That","The","Because","He is a","In the end","Do it for the",""]; 
-    var short_second = ["forever.","only once","no more"," "," ",""]; 
+        case 0: 
+            var normal_first = ["Be a", "Everyone is a", "Look at this", "Everything is just", "The meaning of life is", "The majestic", "The", "This will be a"]; 
+    var placeholder1 = obj['tags'][0]['name'];
+    var normal_second = ["Because of", "This is the meaning of the", "This is the art of", "Just do it Mr.", "All day, every day"]; 
+    var placeholder2 = obj['tags'][1]['name'];
+    var normal_third = ["Today","Tomorrow","Every Day","Now","At home","Wherever you are","Think of that every day"]; 
      
-    var firstRand =  Math.floor((Math.random() * short_first.length) );  
-    var secondRand = Math.floor((Math.random() * short_second.length) );   
+    var firstRand =  Math.floor((Math.random() * 8) );  
+    var secondRand = Math.floor((Math.random() * 5));   
+    var thirdRand = Math.floor((Math.random()*7)); 
+     
+    textinsert = normal_first[firstRand] + " \n  " + placeholder1 + " \n" + normal_second[secondRand]+ " " + placeholder2 + " " + normal_third[thirdRand]; 
+     
+     
+            break; 
+        case 1: 
+       var long_first = ["The","All","No","Some"]; 
+    var placeholder1 = obj['tags'][0]['name'];
+    var long_second = ["is the","are just","will destroy the"]; 
+    var placeholder2 = obj['tags'][1]['name'];
+    var long_third = ["of the","in the","of the beautiful"," "]; 
+    var placeholder3 = obj['tags'][2]['name'];;
+    var firstRand =  Math.floor((Math.random() * 4));  
+    var secondRand = Math.floor((Math.random() * 3));   
+    var thirdRand = Math.floor((Math.random()*3)); 
+     
+    textinsert = long_first[firstRand] + " " + placeholder1 + " " + long_second[secondRand]+ " " + placeholder2 + " " + long_third[thirdRand]+ " " +  placeholder3;  
+         
+     
+     
+     
+            break; 
+        default: 
+           var short_first = ["This","That","The","Because","He is a","In the end",""]; 
+    var placeholder1 = obj['tags'][0]['name'];
+    var short_second = ["Forever.","Only once","No more"," "," "]; 
+     
+    var firstRand =  Math.floor((Math.random() * 7) );  
+    var secondRand = Math.floor((Math.random() * 5) );   
      
      
     textinsert = short_first[firstRand] + " " + placeholder1 + " " + short_second[secondRand];  
@@ -172,7 +163,7 @@ function requestImgAPI(param) {
 
             });
         } else {
-            alert('Plase insert a valid URL!');
+            alert('please insert url');
         }
     }else{
         displayText(tmpUrl);
