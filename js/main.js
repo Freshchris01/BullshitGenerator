@@ -18,14 +18,11 @@ function init() {
         $('#loadingGif').css({
             visibility : 'hidden'
         });
-     
-    requestMS(0);
-
-
-});
+    });
 
 // To initially run the function:
 $(window).resize();
+requestMS(0);
 }
 
 function displayText(imageUrl){
