@@ -1,6 +1,6 @@
 Package No.;Feature;Wer?;Status;Done?
 1;Layout der Website -> Standartdesign --> Impressum;Christian;in Master;Done 20160417
-2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;;Sollte getan werden!!;
+2;Es sollte bei mehrmaligem API request mit einem Bild nur die Schrift erneuert werden und nicht alles;in master;Done;
 3;Grammatiken erweitern - Mehrzahl?? --> Mehrzahl zB immer wenn ein -s hinten;;;
 4;Download-Button;Simon, Chrisitan;Laufend verbesserungen!!;xxx
 5;Noch mehr Textvarianten die Ausgegeben werden können.;Simon;in Master;Done 20160418
