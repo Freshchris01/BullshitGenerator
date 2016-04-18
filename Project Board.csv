@@ -4,7 +4,7 @@ Package No.;Feature;Wer?;Status;Done?
 3;Grammatiken erweitern - Mehrzahl?? --> Mehrzahl zB immer wenn ein -s hinten;;;
 4;Download-Button;Simon, Chrisitan;Laufend verbesserungen!!;xxx
 5;Noch mehr Textvarianten die Ausgegeben werden können.;Simon;in Master;Done 20160418
-6;Watermark unten rechts ins Bild einfügen (-> created with im-gen.org);;;
+6;Watermark unten rechts ins Bild einfügen (-> created with im-gen.org);Christian;in master;Done
 7;"Bug: Wort Nr. 3 ist momentan anscheinend immer ""white""";Simon;Resolved;Done 20160418
 8;Wähle Alle Tags aus und dann wähle davon Zufällig;Simon;in Master;Done 20160418
 9;at Christian --> Füge auch einen Cognitive Services ACC hinzu und deinen Access code --> dann hätten wir doppeltes Volumen? :);;;

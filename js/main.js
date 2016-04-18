@@ -30,6 +30,18 @@ function displayText(imageUrl){
         context.strokeStyle = 'black';
         context.strokeText(textinsert, imageObj.naturalWidth/2, 1.5 * fontHeight, imageObj.naturalWidth);
         context.fill();
+        
+        context.fillStyle="#000000";
+        context.globalAlpha='0.7';
+        var waterMarkFontHeight = obj['metadata']['height'] / 100.0 * 4.00;
+        context.font = waterMarkFontHeight + "px Arial";
+        context.fillRect(3, (imageObj.naturalHeight - waterMarkFontHeight /2) - waterMarkFontHeight, context.measureText('im-gen.org').width + 3 ,waterMarkFontHeight + 5);      
+        context.fillStyle="white";
+        context.globalAlpha='1';
+        context.textAlign='left';       // (imageObj.naturalHeight > 900) ? 4 : 1
+        var offset = (imageObj.naturalHeight > 900) ? 4 : 1;
+        context.fillText('im-gen.org', 5, imageObj.naturalHeight - waterMarkFontHeight /2 - offset, imageObj.naturalWidth);
+        context.fill();
         //context.stroke();
           var x = 0;
           var y = 0;
