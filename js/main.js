@@ -6,7 +6,26 @@ var obj;
 var tmpUrl = "";
 
 function init() {
-        requestMS(0);
+    
+    $(window).resize(function(){
+        console.log('test');
+        $('#loadingGif').css({
+            position:'absolute',
+            left: ($(window).width() - $('.className').outerWidth())/2 - 25,
+            top: ($(window).height() - $('.className').outerHeight())/2 - 100
+        });
+        
+        $('#loadingGif').css({
+            visibility : 'hidden'
+        });
+     
+    requestMS(0);
+
+
+});
+
+// To initially run the function:
+$(window).resize();
 }
 
 function displayText(imageUrl){
@@ -109,6 +128,11 @@ function requestMS(param){
     if(tmpUrl != $.trim($('#urlInput').val())){
         if ($.trim($('#urlInput').val()) != "") {
             var dataText = '{"url":"' + $.trim($('#urlInput').val()) + '"}';
+            
+            $('#loadingGif').css({
+                visibility : 'visible'
+            });
+        
             $.ajax({
                 type: "POST",
                 url: "http://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=Tags",
@@ -126,10 +150,18 @@ function requestMS(param){
                         displayText($.trim($('#urlInput').val()));
                     }else if(param == 0){
                         displayImage($.trim($('#urlInput').val()));
-                    }                    
+                    }
+                    
+                    $('#loadingGif').css({
+                        visibility : 'hidden'
+                    });                    
                 },
                 error: function(error){
+                    $('#loadingGif').css({
+                        visibility : 'hidden'
+                    });
                     alert(JSON.parse(error['responseText'])['message']);
+                    
                 }
             });
            
