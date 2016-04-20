@@ -30,3 +30,7 @@ filter: alpha(opacity=40);
     height: 30px;
     width: auto;
 }
+
+.tab-pane{
+    margin: 20px;
+}
