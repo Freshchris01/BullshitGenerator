@@ -8,7 +8,6 @@ var tmpUrl = "";
 function init() {
     
     $(window).resize(function(){
-        console.log('test');
         $('#loadingGif').css({
             position:'absolute',
             left: ($(window).width() - $('.className').outerWidth())/2 - 25,
@@ -264,4 +263,8 @@ function displayImage(url){
         };
 
         imageObj.src = $('#urlInput').val();
+}
+
+function showHelp(){
+    $('#myAlert').modal('show');
 }

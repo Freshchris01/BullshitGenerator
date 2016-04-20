@@ -7,7 +7,7 @@ body{
 canvas{
     margin: auto;
     display: block;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .loadingDiv{
@@ -21,4 +21,12 @@ canvas{
     background-position:center;
     z-index:10000000;  opacity: 0.4;
 filter: alpha(opacity=40);
+}
+
+#imgHelp{
+    margin: 0 auto;
+    margin-top: 4px;
+    display: block;
+    height: 30px;
+    width: auto;
 }
